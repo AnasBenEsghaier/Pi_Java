@@ -1,6 +1,6 @@
 package org.Per.Controllers.Entities;
 
-public class Personne {
+public class Users {
     private String username;
     private String email;
     private String password;
@@ -10,9 +10,9 @@ public class Personne {
     private int id;
     private int points;
 
-    public Personne(){}
+    public Users(){}
 
-    public Personne(String username, String email, String password, String role, String numtel, String created_at, int points) {
+    public Users(String username, String email, String password, String role, String numtel, String created_at, int points) {
         this.username = username;
         this.email = email;
         this.password = password;
@@ -22,7 +22,7 @@ public class Personne {
         this.id = id;
         this.points = points;
     }
-    public Personne(String username, String email, String password, String role, String numtel, String created_at, int id, int points) {
+    public Users(String username, String email, String password, String role, String numtel, String created_at, int id, int points) {
         this.username = username;
         this.email = email;
         this.password = password;
@@ -99,12 +99,12 @@ public class Personne {
 
     @Override
     public String toString() {
-        return "USER{" +
+        return '\n'+
                 "id=" + id +
                 ", username='" + username + '\'' +
                 ", email='" + email + '\'' +
                 ", password=" + password + '\''+
-                ", Role=" + role + '\''+
-                '}';
+                ", Role=" + role + '\''
+                ;
     }
 }
