@@ -1,0 +1,267 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.text.Text?>
+<?import javafx.geometry.Insets?>
+
+<HBox
+    xmlns="http://javafx.com/javafx/21"
+    xmlns:fx="http://javafx.com/fxml/1"
+    fx:controller="gui.UsersControllers.MainMenuController"
+    stylesheets="@../soft-ui.css"
+    prefWidth="820" prefHeight="660"
+    styleClass="root">
+
+
+    <!-- ███████████████████████████████ -->
+    <!--           S I D E B A R        -->
+    <!-- ███████████████████████████████ -->
+
+    <VBox prefWidth="220" styleClass="sidebar">
+
+        <!-- Brand -->
+        <HBox alignment="CENTER_LEFT" spacing="10">
+            <HBox.margin><Insets top="4" right="20" bottom="20" left="20"/></HBox.margin>
+            <StackPane prefWidth="36" prefHeight="36" styleClass="brand-logo">
+                <Text text="S" styleClass="brand-logo-text"/>
+            </StackPane>
+            <Text text="Soft UI Dashboard" styleClass="brand-name"/>
+        </HBox>
+
+        <!-- Active Nav: Dashboard -->
+        <HBox alignment="CENTER_LEFT" spacing="10" styleClass="nav-item-active">
+            <HBox.margin><Insets left="10" right="10" bottom="4"/></HBox.margin>
+            <StackPane prefWidth="28" prefHeight="28">
+                <Text text="🏠" styleClass="icon-emoji"/>
+            </StackPane>
+            <Text text="Dashboard" styleClass="nav-item-label nav-label"/>
+        </HBox>
+
+        <!-- Section label -->
+        <Text text="PAGES" styleClass="nav-section-label"/>
+
+        <!-- Admin Panel — hidden for non-admins via controller -->
+        <Button fx:id="btnAdmin" onAction="#goToAdmin"
+                maxWidth="Infinity" styleClass="nav-btn">
+            <graphic>
+                <HBox alignment="CENTER_LEFT" spacing="10" styleClass="nav-btn-content">
+                    <StackPane prefWidth="28" prefHeight="28" styleClass="nav-icon-box">
+                        <Text text="🛠" styleClass="icon-emoji"/>
+                    </StackPane>
+                    <Text text="Admin Panel" styleClass="nav-item-label"/>
+                </HBox>
+            </graphic>
+        </Button>
+
+        <!-- Ideas -->
+        <Button fx:id="btnIdea" onAction="#goToIdea"
+                maxWidth="Infinity" styleClass="nav-btn">
+            <graphic>
+                <HBox alignment="CENTER_LEFT" spacing="10" styleClass="nav-btn-content">
+                    <StackPane prefWidth="28" prefHeight="28" styleClass="nav-icon-box">
+                        <Text text="💡" styleClass="icon-emoji"/>
+                    </StackPane>
+                    <Text text="Ideas" styleClass="nav-item-label"/>
+                </HBox>
+            </graphic>
+        </Button>
+
+        <!-- Missions -->
+        <Button fx:id="btnMission" onAction="#goToMission"
+                maxWidth="Infinity" styleClass="nav-btn">
+            <graphic>
+                <HBox alignment="CENTER_LEFT" spacing="10" styleClass="nav-btn-content">
+                    <StackPane prefWidth="28" prefHeight="28" styleClass="nav-icon-box">
+                        <Text text="🎯" styleClass="icon-emoji"/>
+                    </StackPane>
+                    <Text text="Missions" styleClass="nav-item-label"/>
+                </HBox>
+            </graphic>
+        </Button>
+
+        <!-- Tasks -->
+        <Button fx:id="btnTasks" onAction="#goToTasks"
+                maxWidth="Infinity" styleClass="nav-btn">
+            <graphic>
+                <HBox alignment="CENTER_LEFT" spacing="10" styleClass="nav-btn-content">
+                    <StackPane prefWidth="28" prefHeight="28" styleClass="nav-icon-box">
+                        <Text text="📋" styleClass="icon-emoji"/>
+                    </StackPane>
+                    <Text text="Tasks" styleClass="nav-item-label"/>
+                </HBox>
+            </graphic>
+        </Button>
+
+        <!-- Push to bottom -->
+        <Region VBox.vgrow="ALWAYS"/>
+
+        <Separator>
+            <VBox.margin><Insets left="16" right="16"/></VBox.margin>
+        </Separator>
+
+        <!-- Logged-in user info -->
+        <HBox alignment="CENTER_LEFT" spacing="10">
+            <HBox.margin><Insets top="10" left="16" bottom="4" right="16"/></HBox.margin>
+            <StackPane prefWidth="32" prefHeight="32" styleClass="avatar-circle">
+                <Text fx:id="txtAvatarInitials" text="?" styleClass="avatar-text"/>
+            </StackPane>
+            <VBox spacing="1">
+                <Text fx:id="txtUsername" text="User" styleClass="nav-item-label"/>
+                <Text fx:id="txtRole"     text="Role"  styleClass="nav-section-label" style="-fx-padding: 0;"/>
+            </VBox>
+        </HBox>
+
+        <!-- Logout button -->
+        <Button fx:id="btnLogout" onAction="#handleLogout"
+                maxWidth="Infinity" styleClass="nav-btn">
+            <VBox.margin><Insets bottom="8"/></VBox.margin>
+            <graphic>
+                <HBox alignment="CENTER_LEFT" spacing="10" styleClass="nav-btn-content">
+                    <StackPane prefWidth="28" prefHeight="28" styleClass="nav-icon-box">
+                        <Text text="🚪" styleClass="icon-emoji"/>
+                    </StackPane>
+                    <Text text="Logout" styleClass="nav-item-label" style="-fx-fill: #EA0606;"/>
+                </HBox>
+            </graphic>
+        </Button>
+
+    </VBox>
+    <!-- END SIDEBAR -->
+
+
+    <!-- ███████████████████████████████ -->
+    <!--         M A I N   A R E A      -->
+    <!-- ███████████████████████████████ -->
+
+    <VBox HBox.hgrow="ALWAYS" spacing="16" styleClass="main-area">
+
+        <!-- ── Top bar ── -->
+        <HBox alignment="CENTER_LEFT" styleClass="page-header-bar">
+            <VBox spacing="3">
+                <Text fx:id="txtWelcome" text="Welcome back 👋" styleClass="page-title"/>
+                <Text text="Main Menu" styleClass="page-subtitle"/>
+            </VBox>
+            <Region HBox.hgrow="ALWAYS"/>
+            <StackPane prefWidth="38" prefHeight="38" styleClass="avatar-circle">
+                <Text fx:id="txtTopInitials" text="?" styleClass="avatar-text"/>
+            </StackPane>
+        </HBox>
+
+        <!-- ── Row 1: Admin (visible to admin only) + Ideas ── -->
+        <HBox spacing="16">
+
+            <!-- Admin card — hidden for non-admins -->
+            <VBox fx:id="cardAdmin" HBox.hgrow="ALWAYS" spacing="0" styleClass="stat-card">
+                <HBox alignment="CENTER_LEFT">
+                    <VBox spacing="4">
+                        <Text text="ADMIN PANEL" styleClass="stat-card-category"/>
+                        <Text text="Control" styleClass="stat-card-value"/>
+                    </VBox>
+                    <Region HBox.hgrow="ALWAYS"/>
+                    <StackPane prefWidth="44" prefHeight="44" styleClass="icon-box-orange">
+                        <Text text="🛠" styleClass="icon-emoji-lg"/>
+                    </StackPane>
+                </HBox>
+                <Separator>
+                    <VBox.margin><Insets top="10" bottom="2"/></VBox.margin>
+                </Separator>
+                <Text text="System management" styleClass="stat-card-footer"/>
+            </VBox>
+
+            <!-- Ideas card -->
+            <VBox HBox.hgrow="ALWAYS" spacing="0" styleClass="stat-card">
+                <HBox alignment="CENTER_LEFT">
+                    <VBox spacing="4">
+                        <Text text="IDEAS" styleClass="stat-card-category"/>
+                        <Text text="Concepts" styleClass="stat-card-value"/>
+                    </VBox>
+                    <Region HBox.hgrow="ALWAYS"/>
+                    <StackPane prefWidth="44" prefHeight="44" styleClass="icon-box-green">
+                        <Text text="💡" styleClass="icon-emoji-lg"/>
+                    </StackPane>
+                </HBox>
+                <Separator>
+                    <VBox.margin><Insets top="10" bottom="2"/></VBox.margin>
+                </Separator>
+                <Text text="+8 new ideas today" styleClass="stat-card-footer"/>
+            </VBox>
+
+        </HBox>
+
+        <!-- ── Row 2: Missions + Tasks ── -->
+        <HBox spacing="16">
+
+            <!-- Missions card -->
+            <VBox HBox.hgrow="ALWAYS" spacing="0" styleClass="stat-card">
+                <HBox alignment="CENTER_LEFT">
+                    <VBox spacing="4">
+                        <Text text="MISSIONS" styleClass="stat-card-category"/>
+                        <Text text="Goals" styleClass="stat-card-value"/>
+                    </VBox>
+                    <Region HBox.hgrow="ALWAYS"/>
+                    <StackPane prefWidth="44" prefHeight="44" styleClass="icon-box-pink">
+                        <Text text="🎯" styleClass="icon-emoji-lg"/>
+                    </StackPane>
+                </HBox>
+                <Separator>
+                    <VBox.margin><Insets top="10" bottom="2"/></VBox.margin>
+                </Separator>
+                <Text text="3 active missions" styleClass="stat-card-footer"/>
+            </VBox>
+
+            <!-- Tasks card -->
+            <VBox HBox.hgrow="ALWAYS" spacing="0" styleClass="stat-card">
+                <HBox alignment="CENTER_LEFT">
+                    <VBox spacing="4">
+                        <Text text="TASKS" styleClass="stat-card-category"/>
+                        <Text text="To-Do" styleClass="stat-card-value"/>
+                    </VBox>
+                    <Region HBox.hgrow="ALWAYS"/>
+                    <StackPane prefWidth="44" prefHeight="44" styleClass="icon-box-blue">
+                        <Text text="📋" styleClass="icon-emoji-lg"/>
+                    </StackPane>
+                </HBox>
+                <Separator>
+                    <VBox.margin><Insets top="10" bottom="2"/></VBox.margin>
+                </Separator>
+                <Text text="View and manage tasks" styleClass="stat-card-footer"/>
+            </VBox>
+
+        </HBox>
+
+        <!-- ── Quick stats ── -->
+        <HBox styleClass="quick-stats">
+            <VBox HBox.hgrow="ALWAYS" alignment="CENTER" spacing="4">
+                <Text text="24" styleClass="qs-number"/>
+                <Text text="Open Tasks" styleClass="qs-label"/>
+            </VBox>
+            <Separator orientation="VERTICAL"/>
+            <VBox HBox.hgrow="ALWAYS" alignment="CENTER" spacing="4">
+                <Text text="7" styleClass="qs-number"/>
+                <Text text="Active Missions" styleClass="qs-label"/>
+            </VBox>
+            <Separator orientation="VERTICAL"/>
+            <VBox HBox.hgrow="ALWAYS" alignment="CENTER" spacing="4">
+                <Text text="142" styleClass="qs-number"/>
+                <Text text="Total Users" styleClass="qs-label"/>
+            </VBox>
+        </HBox>
+
+        <!-- Spacer -->
+        <Region VBox.vgrow="ALWAYS"/>
+
+        <!-- Footer -->
+        <HBox alignment="CENTER">
+            <Text text="© 2025 · Soft UI Dashboard · JavaFX" styleClass="footer-text"/>
+        </HBox>
+
+    </VBox>
+    <!-- END MAIN AREA -->
+
+
+</HBox>

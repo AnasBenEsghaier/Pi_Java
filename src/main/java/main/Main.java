@@ -1,9 +1,8 @@
-package org.Per.Controllers.Mains;
+package main;
 
-import org.Per.Controllers.Entities.Users;
-import org.Per.Controllers.Services.UsersService;
+import entities.Users;
+import Services.UsersService;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.sql.SQLException;

@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.text.Text?>
+<?import javafx.geometry.Insets?>
+
+<HBox
+    xmlns="http://javafx.com/javafx/21"
+    xmlns:fx="http://javafx.com/fxml/1"
+    fx:controller="gui.UsersControllers.SignInController"
+    stylesheets="@../soft-ui.css"
+    prefWidth="860" prefHeight="580"
+    styleClass="root">
+
+    <!-- ═══════════════════════════════════════════
+         LEFT PANEL  –  Gradient hero / branding
+    ══════════════════════════════════════════════ -->
+    <VBox prefWidth="340" alignment="CENTER" spacing="20" styleClass="signin-hero">
+        <VBox.margin><Insets/></VBox.margin>
+        <VBox.margin><Insets/></VBox.margin>
+
+        <!-- Logo circle -->
+        <StackPane prefWidth="64" prefHeight="64" styleClass="signin-logo">
+            <Text text="S" styleClass="signin-logo-text"/>
+        </StackPane>
+
+        <VBox alignment="CENTER" spacing="8">
+            <Text text="Welcome back!" styleClass="signin-hero-title"/>
+            <Text text="Sign in to continue to" styleClass="signin-hero-sub"/>
+            <Text text="Soft UI Dashboard" styleClass="signin-hero-app"/>
+        </VBox>
+
+        <!-- decorative circles -->
+        <StackPane prefWidth="120" prefHeight="120" styleClass="signin-deco-circle-lg"/>
+        <StackPane prefWidth="60" prefHeight="60" styleClass="signin-deco-circle-sm"/>
+
+        <Region VBox.vgrow="ALWAYS"/>
+        <Text text="© 2025 Soft UI Dashboard" styleClass="signin-hero-footer"/>
+
+    </VBox>
+
+    <!-- ═══════════════════════════════════════════
+         RIGHT PANEL  –  Sign-in form
+    ══════════════════════════════════════════════ -->
+    <VBox HBox.hgrow="ALWAYS" alignment="CENTER" styleClass="signin-form-panel">
+
+        <VBox maxWidth="360" spacing="6">
+
+            <!-- Title -->
+            <VBox spacing="4">
+                <VBox.margin><Insets bottom="10"/></VBox.margin>
+                <Text text="Sign In" styleClass="form-title"/>
+                <Text text="Enter your email and password to continue" styleClass="form-subtitle"/>
+            </VBox>
+
+            <Separator><VBox.margin><Insets top="4" bottom="12"/></VBox.margin></Separator>
+
+            <!-- Email -->
+            <Text text="EMAIL" styleClass="form-label"/>
+            <TextField fx:id="txtEmail" promptText="you@example.com" styleClass="text-field"/>
+
+            <!-- Password -->
+            <Text text="PASSWORD" styleClass="form-label"/>
+            <PasswordField fx:id="txtPassword" promptText="••••••••" styleClass="password-field"/>
+
+            <!-- Login button -->
+            <Button text="Sign In" onAction="#handleLogin" maxWidth="Infinity" styleClass="btn-primary">
+                <VBox.margin><Insets top="16"/></VBox.margin>
+            </Button>
+
+            <!-- Message label -->
+            <Label fx:id="lblMessage" styleClass="msg-label">
+                <VBox.margin><Insets top="6"/></VBox.margin>
+            </Label>
+
+            <!-- Divider -->
+            <HBox alignment="CENTER" spacing="10">
+                <VBox.margin><Insets top="16" bottom="16"/></VBox.margin>
+                <Separator HBox.hgrow="ALWAYS"/>
+                <Text text="or" styleClass="form-subtitle"/>
+                <Separator HBox.hgrow="ALWAYS"/>
+            </HBox>
+
+            <!-- Register button -->
+            <Button text="Create an Account" onAction="#goToRegister" maxWidth="Infinity" styleClass="btn-outline"/>
+
+        </VBox>
+    </VBox>
+
+</HBox>

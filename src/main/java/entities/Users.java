@@ -1,4 +1,4 @@
-package org.Per.Controllers.Entities;
+package entities;
 
 public class Users {
     private String username;

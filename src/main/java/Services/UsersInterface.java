@@ -1,6 +1,6 @@
-package org.Per.Controllers.Services;
+package Services;
 
-import org.Per.Controllers.Entities.Users;
+import entities.Users;
 
 import java.sql.SQLException;
 import java.util.List;
